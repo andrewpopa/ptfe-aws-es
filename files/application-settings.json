@@ -27,7 +27,7 @@
         "value": "1"
     },
     "enc_password": {
-        "value": "enc_password"
+        "value": "tf_enc_password"
     },
     "extern_vault_addr": {},
     "extern_vault_enable": {
