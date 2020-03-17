@@ -38,17 +38,17 @@ cd ptfe-aws-es
 As the installation it's modular it consume it's dependencies from separate modules. When you'll use this dependencies, you'll have a list of inputs/outputs variables for each of module which need to be populated.
 
 ## Dependencies
-- [vpc](github.com/andrewpopa/terraform-aws-vpc) - AWS VPC provisioning
+- [vpc](https://github.com/andrewpopa/terraform-aws-vpc) - AWS VPC provisioning
 - [security-group](github.com/andrewpopa/terraform-aws-security-group) - AWS security group provisioning
-- [alb](github.com/andrewpopa/terraform-aws-alb) - AWL application load balancer provisioning
-- [rds](github.com/andrewpopa/terraform-aws-rds) - AWS RDS(postgreSQL) instance provisioning
-- [ptfe-es](github.com/andrewpopa/terraform-aws-s3) - AWS S3 bucket for state files
-- [ptfe-es-snapshot](github.com/andrewpopa/terraform-aws-s3) - AWSS3 bucket for TFE snapshot
-- [dns](github.com/andrewpopa/terraform-cloudflare-dns) - Cloudflare DNS management
-- [key-pair](github.com/andrewpopa/terraform-aws-key-pair) - SSH key-pair for EC2 instance
-- [ec2](github.com/andrewpopa/terraform-aws-ec2) - AWS EC2 instance 
+- [alb](https://github.com/andrewpopa/terraform-aws-alb) - AWL application load balancer provisioning
+- [rds](https://github.com/andrewpopa/terraform-aws-rds) - AWS RDS(postgreSQL) instance provisioning
+- [ptfe-es](https://github.com/andrewpopa/terraform-aws-s3) - AWS S3 bucket for state files
+- [ptfe-es-snapshot](https://github.com/andrewpopa/terraform-aws-s3) - AWSS3 bucket for TFE snapshot
+- [dns](https://github.com/andrewpopa/terraform-cloudflare-dns) - Cloudflare DNS management
+- [key-pair](https://github.com/andrewpopa/terraform-aws-key-pair) - SSH key-pair for EC2 instance
+- [ec2](https://github.com/andrewpopa/terraform-aws-ec2) - AWS EC2 instance 
 - [silent](https://github.com/andrewpopa/ptfe-aws-es/tree/master/modules/silent) - silent module which does installation and also has logic in case of EC2 instance fail to restore the latest snapshot
-- [iam-profile](github.com/andrewpopa/terraform-aws-iam-profile) - IAM instance profile to lunch with
+- [iam-profile](https://github.com/andrewpopa/terraform-aws-iam-profile) - IAM instance profile to lunch with
 
 Beyond the inputs variables for dependencies which need to be populated, silent module has input and output variables.
 
