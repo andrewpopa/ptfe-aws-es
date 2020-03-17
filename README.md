@@ -90,7 +90,7 @@ $ terraform apply
 
 To not expose the service directly to the internet, service will be deployed behind application load balancer, however in case you want to deploy it in public subnet for any reason you can choose subnet 
 
-```bash
+```hcl
 module "ec2" {
   source   = "github.com/andrewpopa/terraform-aws-ec2"
   ami_type = "ami-0085d4f8878cddc81"
