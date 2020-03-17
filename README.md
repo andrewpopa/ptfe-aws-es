@@ -100,7 +100,7 @@ module "ec2" {
   public_key             = module.key-pair.public_key
   public_ip              = true
   user_data              = module.silent.silent_template
-  
+  instance_profile       = module.iam-profile.iam_instance_profile
   ec2_instance = {
     type          = "m5.large"
     root_hdd_size = 50
@@ -118,6 +118,7 @@ Once service is available and we can login, we can imitate failure of the instan
 
 # Create snapshot
 When application is up and running you can create snapshot in admin panel by clicking `Start Snapshot` button
+
 ![alt text](img/snapshot.png "Create snapshot")
 
 Once snapshot is created you can check current state list, run the following
