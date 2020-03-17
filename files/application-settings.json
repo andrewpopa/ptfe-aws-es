@@ -1,12 +1,12 @@
 {
     "aws_access_key_id": {
-        "value": "tf_aws_access_key_id"
+        "value": ""
     },
     "aws_instance_profile": {
-        "value": "0"
+        "value": "1"
     },
     "aws_secret_access_key": {
-        "value": "tf_aws_secret_access_key"
+        "value": ""
     },
     "azure_account_key": {},
     "azure_account_name": {},
