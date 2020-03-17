@@ -2,8 +2,6 @@ data "template_file" "user_data_script" {
   template = "${file("${path.module}/templates/user_data.sh.tpl")}"
 
   vars = {
-    aws_access_key_id          = var.aws_access_key_id
-    aws_secret_access_key      = var.aws_secret_access_key
     fqdn                       = var.fqdn
     dashboard_default_password = var.dashboard_default_password
     pg_dbname                  = var.pg_dbname

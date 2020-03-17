@@ -12,8 +12,6 @@ curl -o /tmp/postgresql.sql https://raw.githubusercontent.com/andrewpopa/ptfe-aw
 # application settings
 curl -o /tmp/application-settings.json https://raw.githubusercontent.com/andrewpopa/ptfe-aws-es/master/files/application-settings.json
 
-#sed -i 's/tf_aws_access_key_id/${aws_access_key_id}/g' /tmp/application-settings.json
-#sed -i 's#tf_aws_secret_access_key#${aws_secret_access_key}#g' /tmp/application-settings.json
 sed -i 's/tf_enc_password/${dashboard_default_password}/g' /tmp/application-settings.json
 sed -i 's/tf_hostname/${fqdn}/g' /tmp/application-settings.json
 sed -i 's/tf_pg_dbname/${pg_dbname}/g' /tmp/application-settings.json
@@ -50,21 +48,9 @@ sudo chmod +x /tmp/install.sh
 
 sudo apt-get update -y 
 sudo apt-get install -y postgresql-client   
-#sudo apt-get install python3-pip -y
 sudo apt-get install awscli
 
-#export LC_ALL=C
-#pip3 install awscli --upgrade --user
-#export PATH=/home/ubuntu/.local/bin:$PATH
-
-#export AWS_ACCESS_KEY_ID=${aws_access_key_id}
-#export AWS_SECRET_ACCESS_KEY=${aws_secret_access_key}
-#export AWS_DEFAULT_REGION=eu-central-1
-
 export PGPASSWORD=${pg_password}; psql -h ${pg_netloc} -d ${pg_dbname} -U ${pg_user} -p ${pg_port} -a -q -f /tmp/postgresql.sql
-
-#public_ip = $(curl http://169.254.169.254/latest/meta-data/public-ipv4)
-#private_ip = $(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 
 # if snapshots already exist on S3 restore latest snapshot
 (aws s3 ls s3://${s3_bucket_svc_snapshots}/files/db.dump --region ${s3_region}) && {

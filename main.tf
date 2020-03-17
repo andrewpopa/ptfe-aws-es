@@ -104,6 +104,30 @@ module "key-pair" {
   source   = "github.com/andrewpopa/terraform-aws-key-pair"
 }
 
+module "iam-profile" {
+  source = "github.com/andrewpopa/terraform-aws-iam-profile"
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": ["s3:*"],
+        "Resource": [
+          "${module.ptfe-es.s3_bucket_arn}",
+          "${module.ptfe-es-snapshot.s3_bucket_arn}"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws:s3:::*"
+      }
+    ]
+  }
+  EOF
+}
+
 module "ec2" {
   source   = "github.com/andrewpopa/terraform-aws-ec2"
   ami_type = "AMI-TYPE"
@@ -113,7 +137,7 @@ module "ec2" {
   public_key             = module.key-pair.public_key
   public_ip              = true
   user_data              = module.silent.silent_template
-  
+  instance_profile       = module.iam-profile.iam_instance_profile
   ec2_instance = {
     type          = "m5.large"
     root_hdd_size = 50
@@ -127,9 +151,6 @@ module "ec2" {
 
 module "silent" {
   source = "./modules/silent/"
-
-  aws_access_key_id     = "KEY-ID"
-  aws_secret_access_key = "ACCESS-KEY"
 
   # DNS
   fqdn = module.dns.fqdn
