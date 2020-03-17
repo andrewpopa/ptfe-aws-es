@@ -48,6 +48,7 @@ As the installation it's modular it consume it's dependencies from separate modu
 - [key-pair](github.com/andrewpopa/terraform-aws-key-pair) - SSH key-pair for EC2 instance
 - [ec2](github.com/andrewpopa/terraform-aws-ec2) - AWS EC2 instance 
 - [silent](https://github.com/andrewpopa/ptfe-aws-es/tree/master/modules/silent) - silent module which does installation and also has logic in case of EC2 instance fail to restore the latest snapshot
+- [iam-profile](github.com/andrewpopa/terraform-aws-iam-profile) - IAM instance profile to lunch with
 
 Beyond the inputs variables for dependencies which need to be populated, silent module has input and output variables.
 
