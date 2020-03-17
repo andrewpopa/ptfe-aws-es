@@ -54,8 +54,6 @@ Beyond the inputs variables for dependencies which need to be populated, silent 
 ## Inputs
 | **Name**  | **Type** | **Default** | **Required** | **Description** |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| aws_access_key_id | string |  | no | AWS access key id |
-| aws_secret_access_key | string |  | no | AWS secrete access key |
 | fqdn | string | module.dns.fqdn | yes | FQDN where you are deploying pTFE |
 | dashboard_default_password | string |  | yes | Admin panel password |
 | pg_dbname | string | module.rds.db_name | yes | RDS name |
@@ -71,7 +69,7 @@ Beyond the inputs variables for dependencies which need to be populated, silent 
 
 One all inputs variables are populated, you can proceed to run it
 
-```bash
+```hcl
 $ terraform init
 $ terraform apply
 ```
@@ -123,13 +121,13 @@ When application is up and running you can create snapshot in admin panel by cli
 
 Once snapshot is created you can check current state list, run the following
 
-```bash
+```hcl
 $ terraform state list
 ```
 
 you'll see similar output, but bigger
 
-```bash
+```hcl
 module.alb.aws_lb_target_group_attachment.tf_attach_frontend[1]
 module.dns.cloudflare_record.record_name
 module.ec2.aws_instance.tf_ec2
@@ -139,14 +137,14 @@ module.key-pair.local_file.private_key_pem
 
 mark EC2 instance as taint
 
-```
+```hcl
 $ terraform taint module.ec2.aws_instance.tf_ec2
 Resource instance module.ec2.aws_instance.tf_ec2 has been marked as tainted.
 ```
 
 run terraform apply, once again
 
-```
+```hcl
 $ terraform apply
 ```
 
