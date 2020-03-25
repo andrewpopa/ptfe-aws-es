@@ -3,6 +3,10 @@ Modular terraform code which will deploy private TFE on AWS with external servic
 
 As external service TFE application will use S3 bucket for state file and snapshot as well as RDS(PostgreSQL)  for application configuration
 
+The diagram for private Terraform would be the following:
+
+![alt text](img/PTFE_architecture.png "Private TFE architecture diagram")
+
 # Pre-requirements
 - [Terraform](https://www.terraform.io)
 - [PTFE](https://www.terraform.io/docs/enterprise/index.html)
