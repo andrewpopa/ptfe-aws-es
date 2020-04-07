@@ -50,8 +50,6 @@ sudo apt-get update -y
 sudo apt-get install -y postgresql-client   
 sudo apt-get install awscli
 
-export PGPASSWORD=${pg_password}; psql -h ${pg_netloc} -d ${pg_dbname} -U ${pg_user} -p ${pg_port} -a -q -f /tmp/postgresql.sql
-
 # if snapshots already exist on S3 restore latest snapshot
 (aws s3 ls s3://${s3_bucket_svc_snapshots}/files/db.dump --region ${s3_region}) && {
   echo "Restoring everything from backup"
